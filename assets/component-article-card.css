@@ -1,142 +1,75 @@
-@media screen and (max-width: 749px) {
-  .articles-wrapper .article {
+
+.article-card {
+    position: relative;
+}
+
+.article-media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+.article-media > *{
+    display: block;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
-  }
 }
 
-.article {
-  display: flex;
-  align-items: center;
+.article-media > picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 10px;
 }
 
-.article.grid__item {
-  padding: 0;
+.article-media > svg {
+    border-radius: 10px;
 }
 
-.grid--peek .article-card {
-  box-sizing: border-box;
+
+.article-media__square {
+    padding-bottom: 100%;
 }
 
-.article-card__image-wrapper > a {
-  display: block;
-}
-
-.article-card__title {
-  text-decoration: none;
-  word-break: break-word;
+.article-card__title{
+    font-size: 26px;
+    font-weight: 700;
+    min-height: 100px;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
 }
 
 .article-card__title a:after {
-  bottom: 0;
-  content: '';
-  height: 100%;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 100%;
-  z-index: 1;
+    bottom: 0;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+.article-card__title .article-card__url{
+    text-decoration: none;
+    color: #000000;
+    display: block;
 }
 
-.article-card__link.link {
-  padding: 0;
-}
-
-.article-card__link {
-  text-underline-offset: 0.3rem;
-}
-
-.article-card .card__heading {
-  margin-bottom: 0.6rem;
-}
-
-.blog-articles .article-card .card__information,
-.blog__posts .article-card .card__information {
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
-.article-card__info {
-  padding-top: 0.4rem;
-}
-
-.article-card__footer {
-  letter-spacing: 0.1rem;
-  font-size: 1.4rem;
-}
-
-.article-card__footer:not(:last-child) {
-  margin-bottom: 1rem;
-}
-
-.article-card__footer:last-child {
-  margin-top: auto;
+.article-card__info-wrapper {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
 }
 
 .article-card__excerpt {
-  width: 100%;
-  margin-top: 1.2rem;
-}
-
-.article-card__link:not(:only-child) {
-  margin-right: 3rem;
-}
-
-@media screen and (min-width: 990px) {
-  .article-card__link:not(:only-child) {
-    margin-right: 4rem;
-  }
-}
-
-.article-card__image--small .ratio::before {
-  padding-bottom: 11rem;
-}
-
-.article-card__image--medium .ratio::before {
-  padding-bottom: 22rem;
-}
-
-.article-card__image--large .ratio::before {
-  padding-bottom: 33rem;
-}
-
-@media screen and (min-width: 750px) {
-  .article-card__image--small .ratio::before {
-    padding-bottom: 14.3rem;
-  }
-
-  .article-card__image--medium .ratio::before {
-    padding-bottom: 21.9rem;
-  }
-
-  .article-card__image--large .ratio::before {
-    padding-bottom: 27.5rem;
-  }
-}
-
-@media screen and (min-width: 990px) {
-  .article-card__image--small .ratio::before {
-    padding-bottom: 17.7rem;
-  }
-
-  .article-card__image--medium .ratio::before {
-    padding-bottom: 30.7rem;
-  }
-
-  .article-card__image--large .ratio::before {
-    padding-bottom: 40.7rem;
-  }
-}
-
-/* check for flexbox gap in older Safari versions */
-@supports not (inset: 10px) {
-  .articles-wrapper.grid {
-    margin: 0 0 5rem 0;
-  }
-
-  @media screen and (min-width: 750px) {
-    .articles-wrapper.grid {
-      margin-bottom: 7rem;
-    }
-  }
+    width: 100%;
+    margin-top: 12px;
 }

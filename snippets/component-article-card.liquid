@@ -1,0 +1,65 @@
+{% comment %}
+  Renders an article card for a given blog with settings to either show the image or not.
+
+  Accepts:
+  - blog: {Object} Blog object
+  - article: {Object} Article object
+  - show_image: {String} The setting either show the article image or not. If it's not included it will show the image by default
+  - show_date: {String} The setting either show the article date or not. If it's not included it will not show the image by default
+  - show_author: {String} The setting either show the article author or not. If it's not included it will not show the author by default
+  - show_badge: {String} The setting either show the blog badge or not.
+  - lazy_load: {Boolean} Image should be lazy loaded. Default: true (optional)
+
+  Usage:
+  {% render 'article-card' blog: blog, article: article, show_image: section.settings.show_image %}
+{% endcomment %}
+
+{%- if article and article != empty -%}
+    <div class="article-card">
+        <div class="article-card__image-container">
+          {%- if show_image == true and article.image != blank -%}
+            <div class="article-media article-media__square">
+               {% render "responsive-picture" , desktopImage: article.image %}
+            </div>
+          {% else %}
+            <div class="article-media article-media__square">
+            {{ 'blog-apparel-1' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+        </div>
+        <div class="article-card__info-container">
+          <div class="article-card__info-wrapper">
+            <h3 class="article-card__title">
+              <a href="{{ article.url }}" class="article-card__url">
+                {{ article.title | truncate: 50 | escape }}
+              </a>
+            </h3>
+            <div class="article-card__info">
+              {%- if show_date -%}
+                <span class="article-card__date">{{ article.published_at | time_tag: format: 'date' }}</span>
+              {%- endif -%}
+              {%- if show_author -%}
+                <span class="article-card__author">{{ article.author }}</span>
+              {%- endif -%}
+            </div>
+            {%- if show_excerpt -%}
+              {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
+                <p class="article-card__excerpt">
+                  {%- if article.excerpt.size > 0 -%}
+                    {{ article.excerpt | strip_html | truncatewords: 30 }}
+                  {%- else -%}
+                    {{ article.content | strip_html | truncatewords: 30 }}
+                  {%- endif -%}
+                </p>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+          {%- if show_badge -%}
+            <div class="card__badge {{ settings.badge_position }}">
+              <span class="badge color-{{ settings.color_schemes | first }}">Featured</span>
+            </div>
+          {%- endif -%}
+        </div>
+    </div>
+  {%- endif -%}
+  
