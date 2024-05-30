@@ -7,30 +7,32 @@ Utilize this section to detail the component, explaining the specific problem it
 
 ## Features
 
- - Feature 1 [*Example: Option to show / hide slider dots*]
- - Feature 2 [*Example: Option to switch layout grid / slider*]
- - Feature 3 [*Example: Option to customise rating stars*]
-
-
-## Dependencies
-
- - Dependency 1 [*Example: Splide slider (https://splidejs.com/)*]
- - Dependency 2 [*Example: Animate CSS (https://animate.style/)*]
- - Dependency 3 [*Example: Google sheet API Key*]
+ - Feature 1
+	Option to show featured image
+        Option to show date
+        Option to show author
+ - Feature 2 
+   	Option to select the blog for each tab
+ - Feature 3 
+	Option to change the blog title in the Tab
 
 
 ## Implementation Steps
 
  - ### Step 1: 
-   Navigate to `theme.liquid` file under Layout folder
-   
+   	Open Theme customizer and Navigate to Blog page
+
   - ### Step 2:
-	 Add the below code / Copy the code from `src` folder and paste it in
-   `theme.liquid` file just above closing of `</body>` tag
+	Add the section 'Section Blog Tabs'
+
+ - ### Step 3:
+	Add the blocks 'Block Post'
+
+- ### Step 4:
+ 	Select the Blog from the Block Settings 
 
 # Important Notes
 
 >  - The component employs its own styling for the grid system. For further optimization, consider using the classes provided by the
 > theme.
->  - The component utilizes the splide.js slider. If your theme already includes a different slider library, you should consider using that to
-> maintain consistency.
+
